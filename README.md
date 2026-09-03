@@ -62,7 +62,7 @@ game_chat/
 
 ### 1. 配置环境
 
-在项目根目录创建 `.env` 文件，配置模型、MySQL、DashScope 和 Neo4j 相关参数。
+在项目根目录创建 `.env` 文件，配置模型、MySQL相关参数。
 
 不要将 `.env` 文件提交到 GitHub。
 
