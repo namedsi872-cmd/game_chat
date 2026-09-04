@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "Doubao Thread Exporter",
+  "version": "1.0.0",
+  "description": "Open a Doubao thread and export the conversation as JSON.",
+  "permissions": ["tabs", "scripting", "downloads"],
+  "host_permissions": ["https://www.doubao.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
