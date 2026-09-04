@@ -18,7 +18,6 @@
 - AI 回复流式输出
 - 语音输入与语音播报
 - Electron 悬浮窗模式
-- Neo4j 用户、角色和会话关系同步实验
 
 ## 技术栈
 
@@ -30,7 +29,7 @@
 - MySQL
 - LangChain
 - LangGraph
-- Neo4j
+- Neo4j（后续将接入同步实验）
 - RAG
 - OpenAI 兼容模型接口
 - 阿里云 DashScope Qwen ASR/TTS
