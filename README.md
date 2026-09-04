@@ -18,6 +18,7 @@
 - AI 回复流式输出
 - 语音输入与语音播报
 - Electron 悬浮窗模式
+- Neo4j 用户、角色和会话关系同步实验
 
 ## 技术栈
 
@@ -29,7 +30,7 @@
 - MySQL
 - LangChain
 - LangGraph
-- Neo4j（后续将接入同步实验）
+- Neo4j
 - RAG
 - OpenAI 兼容模型接口
 - 阿里云 DashScope Qwen ASR/TTS
@@ -59,13 +60,32 @@ game_chat/
 
 ## 运行方式
 
-### 1. 配置环境
+### 1. 克隆项目
 
-在项目根目录创建 `.env` 文件，配置模型、MySQL相关参数。
+请先安装 Git、Anaconda 或 Miniconda、Node.js 和 MySQL，然后执行：
 
-不要将 `.env` 文件提交到 GitHub。
+```bash
+git clone https://github.com/namedsi872-cmd/game_chat.git
+cd game_chat
+```
 
-### 2. 启动后端
+### 2. 创建并安装 Python 环境
+
+项目基于 Python 3.10 开发。使用 Conda 创建独立环境并一键安装后端依赖：
+
+```bash
+conda create -n multi_agent python=3.10 -y
+conda activate multi_agent
+pip install -r requirements.txt
+```
+
+首次安装 `faster-whisper` 会下载语音识别所需模型文件，耗时取决于网络环境。
+
+### 3. 配置本地参数
+
+在项目根目录创建 `.env`，填入自己的模型接口、MySQL 和 DashScope 参数。`.env` 包含密钥和密码，不应提交到 GitHub。
+
+### 4. 启动后端
 
 ```bash
 uvicorn backend.app:app --reload --port 8000
@@ -77,7 +97,7 @@ uvicorn backend.app:app --reload --port 8000
 http://127.0.0.1:8000/docs
 ```
 
-### 3. 启动前端
+### 5. 启动前端
 
 ```bash
 cd frontend
@@ -85,7 +105,7 @@ npm install
 npm run dev
 ```
 
-### 4. 启动 Electron 悬浮窗
+### 6. 启动 Electron 悬浮窗
 
 ```bash
 cd frontend
@@ -118,6 +138,10 @@ knowledge/
 
 系统使用 LangGraph 组织消息处理流程。当前流程会接收用户、角色、会话和游戏信息，判断当前请求类型，加载对应的短期记忆和长期记忆，再交给聊天或训练流程处理。
 
+## Neo4j
+
+项目保留了 Neo4j 用户、角色和会话关系同步的实验代码，目前尚未作为正式聊天链路的一部分。
+
 ## 安全说明
 
-API Key、数据库密码均应通过环境变量配置，不应直接写入源代码或提交到公开仓库。
+API Key、数据库密码和 Neo4j 密码均应通过环境变量配置，不应直接写入源代码或提交到公开仓库。
