@@ -1,0 +1,21 @@
+# Runtime: Python 3.10.20
+
+# Web API and file upload
+fastapi==0.136.3
+uvicorn==0.48.0
+python-multipart==0.0.30
+
+# Database and configuration
+SQLAlchemy==2.0.50
+PyMySQL==1.2.0
+python-dotenv==1.2.2
+neo4j==6.2.0
+
+# LLM, RAG, and workflow
+langchain-openai==1.2.2
+langchain-core==1.4.8
+langgraph==1.2.7
+
+# Voice input and output
+dashscope==1.26.5
+faster-whisper==1.2.1
